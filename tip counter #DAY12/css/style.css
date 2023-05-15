@@ -1,0 +1,227 @@
+/*start variables*/
+:root {
+    --MainColor: #00474b;
+    --SecondColor: #26c2ad;
+    --MainTransition: 0.3s;
+}
+/*end variables*/
+/*start global rules*/
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c5e4e7;
+    font-family: 'Roboto Mono', monospace;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 55vw;
+    height: 40vh;
+    gap: 15px;
+}
+p {
+    margin: 0;
+}
+/*end global rules*/
+/*start info box*/
+.info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(50% - 20px);
+}
+.info-box input {
+    width: 100%;
+    margin-left: 5px;
+    margin-top: 10px;
+    height: 40px;
+    border: 2px solid transparent;
+    background-color: #b9b9b96d;
+    font-family: 'Roboto Mono', monospace;
+    transition: var(--MainTransition);
+    outline-color: transparent;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+.info-box input:focus {
+    outline-color: var(--SecondColor);
+}
+.info-box input:focus::placeholder {
+    opacity: 0;
+}
+.info-box input::placeholder {
+    text-transform: capitalize;
+}
+.info-box p {
+    text-transform: capitalize;
+    font-size: 14px;
+}
+.info-box .bill input::placeholder,
+.info-box .num-of-p input::placeholder {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #a4b8b9;
+}
+.info-box .bill div,
+.info-box .num-of-p div {
+    position: relative;
+}
+.info-box .bill i,
+.info-box .num-of-p i {
+    position: absolute;
+    top: 57%;
+    transform: translateY(-50%);
+    left: 15px;
+    color: #a4b8b9;
+}
+.select-tip .choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+.select-tip button {
+    height: 5vh;
+    border: none;
+    color: white;
+    background-color: var(--MainColor);
+    border-radius: 5px;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: var(--MainTransition);
+}
+.select-tip .choices button:hover {
+    background-color: var(--SecondColor);
+    color: var(--MainColor);
+}
+.select-tip .choices input {
+    height: 5vh;
+    margin-left: 0;
+    margin-top: 0;
+    font-size: 16px;
+    padding: 0;
+    text-align: center;
+}
+.text {
+    display: flex;
+    justify-content: space-between;
+}
+#message {
+    display: none;
+}
+.message {
+    font-family: 'Roboto Mono', monospace;
+    color: red;
+    font-size: 13px;
+    text-transform: capitalize;
+    display: block !important;
+}
+.error {
+    border-color: red !important;
+    outline-color: red !important;
+}
+/*end info box*/
+/*start results box*/
+.results-box {
+    background-color: var(--MainColor);
+    border-radius: 15px;
+    color: white;
+    padding: 45px 35px 25px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(50% - 20px);
+}
+.results-box .result {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+}
+.results-box .result .tip-amount ,
+.results-box .result .total {
+    display: flex;
+    justify-content: space-between;
+}
+.results-box .result .tip-amount span:first-child ,
+.results-box .result .total span:first-child {
+    font-size: 14px;
+    text-transform: capitalize;
+    line-height: 1.5;
+}
+.results-box .result .tip-amount span:first-child span ,
+.results-box .result .total span:first-child span {
+    color: #a4b8b9;
+    display: block;
+    font-size: 12px;
+}
+.results-box .result .tip-amount span:last-child ,
+.results-box .result .total span:last-child  {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--SecondColor);
+}
+#amount {
+    margin-left: 3px;
+}
+.results-box button {
+    color: var(--MainColor);
+    background-color: var(--SecondColor);
+    border: none;
+    border-radius: 3px;
+    padding: 9px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    transition: var(--MainTransition);
+}
+.results-box button:hover {
+    background-color: #9fe8df;
+}
+/*end results box*/
+
+/*mobile*/
+
+@media(max-width:998px) {
+    .container {
+        height: fit-content;
+        gap: 25px;
+        width: 90vw;
+    }
+    .info-box {
+        width: 100%;
+    }
+    .info-box .bill {
+        margin-bottom: 25px;
+    }
+    .info-box .num-of-p {
+        margin-top: 25px;
+    }
+    .info-box .bill input {
+        width: 100%;
+    }
+    .info-box .num-of-p input {
+        width: 100%;
+    }
+    .results-box {
+        width: 100%;
+        height: 250px;
+    }
+}
